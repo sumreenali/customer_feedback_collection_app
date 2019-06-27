@@ -4,7 +4,7 @@ const app = express(); //initialize express object as app, all the router we cre
 
 
 app.get('/', (req, res) => {    //express route handler to get data
-    res.send({hi:'there'});
+    res.send({hi:'there, I am testing the second deployment'});
 });
 
 const PORT = process.env.PORT || 5000;  //define PORT to run on heroku production env as well at 5000 for dev env
