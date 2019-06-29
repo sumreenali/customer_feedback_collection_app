@@ -32,7 +32,8 @@ passport.use(new GoogleStrategy({
         
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL:'/auth/google/callback'
+        callbackURL:'/auth/google/callback',
+        proxy: true
     }, (accessToken, refreshToken, profile, done) =>{
 
         //check in db if the coming req profileid is save in db as exsisting googleid record
