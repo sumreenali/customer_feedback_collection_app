@@ -9,7 +9,10 @@ module.exports = (app) => {
 
     app.get(
     '/auth/google/callback',
-    passport.authenticate('google')
+    passport.authenticate('google'),
+        (req, res) =>{
+            res.redirect('/surveys');
+        }
     );
 
 /*
@@ -27,6 +30,8 @@ app.get('/api/current_user', (req, res)=>{
 */ 
 app.get('/api/logout/', (req, res) => {
         req.logout();  //built-in method of passport to kill cookie and logout account
-        res.send(req.user); //send empty req user info as response
+        console.log('auth route logout');
+        console.log(res.sessionCookies);
+        res.redirect('/'); 
     });
 };
