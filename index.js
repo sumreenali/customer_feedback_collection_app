@@ -56,7 +56,7 @@ require('./routes/billingRoute')(app);
         *  like our MediaDeviceInfo.js File, or main.css file
         */
        
-       app.use(expres.static('client/build'));
+       app.use(express.static('client/build'));
 
         /*
          * Express will serve up the index.html file 
@@ -64,7 +64,7 @@ require('./routes/billingRoute')(app);
          */
 
          const path = require('path');
-         app.get('*',(req, res) =>{
+         app.get('*', (req, res) =>{
              res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
          });
      }
