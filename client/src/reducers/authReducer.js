@@ -1,5 +1,5 @@
 /*
-reating Auth Reducer 
+Creating Auth Reducer 
 */
 
 import { FETCH_USER } from '../actions/types'

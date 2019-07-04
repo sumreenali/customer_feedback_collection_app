@@ -5,8 +5,11 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser')
 const keys = require('./config/keys');
+const cors = require('cors');
+//const sgMail = require('@sendgrid/mail');
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -36,6 +39,28 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+     /**
+      * CORS Configuration
+      */
+     
+
+     app.use(cors({
+        origin: 'http://localhost',
+        allowedHeaders: ["Content-Type", "Authorization"]
+    }));
+    
+    app.options('*', cors())
+    
+    
+    app.all('', function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "http://localhost");
+        res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+        res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+        //Auth Each API Request created by user.
+        next();
+    });
+    
+
 
     /*
     * Routes Handling for Development mode
@@ -43,6 +68,7 @@ app.use(passport.session());
 
 require('./routes/authRoute')(app);
 require('./routes/billingRoute')(app);
+require('./routes/surveyRoutes')(app);
 
 
     /*
@@ -70,6 +96,33 @@ require('./routes/billingRoute')(app);
      }
 
 
+     /**
+      * Sendgrid request
+      */
+
+    
+   //  app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it Sendgrid will not send!
+    //  sgMail.setApiKey(keys.sendGridKey);
+    //  app.get('/send-email', (req,res)=>{
+    //      //Get Variables from query string in the search bar
+    // const { recipient, sender, topic, text } = req.query; 
+
+    // //Sendgrid Data Requirements
+    //     const msg = {
+    //         to: recipient, 
+    //         from: sender,
+    //         subject: topic,
+    //         text: text,
+    //     }
+
+    //     //Send Email
+    //     sgMail.send(msg)
+    //     .then((msg) => console.log(text));
+    // }); 
+     
+
+
+
 
 
     /**
@@ -77,6 +130,6 @@ require('./routes/billingRoute')(app);
      * and production mode 
      */
 
-const PORT = process.env.PORT || 5000;  //define PORT to run on heroku production env as well at 5000 for dev env
+const PORT = process.env.PORT || 9000;  //define PORT to run on heroku production env as well at 5000 for dev env
 app.listen(PORT);   //listen this app at localhost port 5000
 //https://young-citadel-94258.herokuapp.com/

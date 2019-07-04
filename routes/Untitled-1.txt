@@ -1,0 +1,22 @@
+hm yahan likh skte hain 
+
+actua;llly masla ye araha hai k  json > token erro araha hai sendgrid pr send krte hoye 
+ye kya scene hai ye live share koi port to yuse nhi kr rha ?
+nhi dikh rahi hamain ye wali
+
+
+qutub
+pta nhi ye server bnd
+neeche 
+ 
+main problem dikhaen
+production keys kahan he?
+
+live share port use karta hai.
+
+react ka port change krskte hain kisi trha ?
+
+take  me apko run kr kedikha skon ??
+ 
+ nahi maloom kese change huta.
+ ya tu session change karte hain

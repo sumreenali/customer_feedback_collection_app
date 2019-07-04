@@ -15,11 +15,10 @@ import * as actions from '../actions'
          react-router-dom deals with dom
      */ 
 
-import Header from './Header'
-import Landing from './Landing'
-import Dashboard from './Dashboard'
-const SurveyNew = () => <h2>SurveyNew</h2>
-
+    import Header from "./Header";
+    import Landing from "./Landing";
+    import Dashboard from "./Dashboard";
+    import SurveyNew from "./surveys/SurveyNew";
      
 class App extends Component{
     componentDidMount(){
@@ -27,25 +26,20 @@ class App extends Component{
 
     }
 
-    render(){
+    render() {
         return (
-            <div style={{  margin:0}}>
-                {/* The BrowserRouter component expects
-                    atmost one child just like App component 
-                */}
-                
-                <BrowserRouter>
-                    <div>
-                        <Header/>
-                        <Route exact path="/" component={ Landing }></Route>
-                        <Route exact path="/surveys" component={ Dashboard }></Route>
-                        <Route  path="/surveys/new" component={ SurveyNew}></Route>
-                    </div>
-
-                </BrowserRouter>
-            </div>
-        )
-    };
+          <div>
+            <BrowserRouter>
+              <div>
+                <Header style={{ position:"fixed" }} />
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/surveys" component={Dashboard} />
+                <Route path="/surveys/new" component={SurveyNew} />
+              </div>
+            </BrowserRouter>
+          </div>
+        );
+      }
 }
 /**
  * the connect takes two args the first arg is reserve for the
