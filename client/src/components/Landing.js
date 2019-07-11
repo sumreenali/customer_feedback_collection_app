@@ -33,7 +33,7 @@ const Landing = () => {
               automate the sending of an outbound invitation text from within your
                own application, by using our Developer Toolkit.
             </p>
-        <button href="gity" className="btn" style={{ fontWeight:500, backgroundColor:'#552fb6', color:'White' , margin:'2% 0%' }} >Try it for Free</button>
+        <button href="https://github.com/sumreenali/customer_feedback_collection_app.git" className="btn" style={{ fontWeight:500, backgroundColor:'#552fb6', color:'White' , margin:'2% 0% 5% 0%' }} >Try it for Free</button>
 </div>
         <footer className="page-footer red lighten-3">
         <div className="container">
@@ -73,7 +73,7 @@ const Landing = () => {
             Falcon 2018 | {''}
             <a
               className="orange-text text-lighten-3"
-              href="https://github.com/sumreenali/customer_feedback_collection_app.gity"
+              href="https://github.com/sumreenali/customer_feedback_collection_app.git"
             >
               Source Code
             </a>
