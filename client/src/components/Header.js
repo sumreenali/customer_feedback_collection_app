@@ -12,7 +12,7 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google">Login With Google</a>
+            <a  style={{ fontWeight:'400' }}href="/auth/google">Login With Google</a>
           </li>
         );
 
@@ -21,7 +21,7 @@ class Header extends Component {
           <li key="1">
             <Payments />
           </li>,
-          <li key="3" style={{ margin: "0 10px" }}>
+          <li key="3" style={{ margin: "0 10px ",fontWeight:'400' }}>
             Credits: {this.props.auth.credits}
           </li>,
           <li key="2">
@@ -32,13 +32,13 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav>
+      <nav style={{ position:'fixed', top:0 }}>
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? "/surveys" : "/"}
-            className="left brand-logo"
+            className="left brand-logo"style={{ marginLeft:'5%', fontWeight:'500' ,fontStyle:'italic' }}
           >
-            Falcon
+            falcon
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
